@@ -1,0 +1,23 @@
+<div class="card" *ngIf="weather">
+  <div class="icon">
+    <app-weather-icon [code]="weather.cod"></app-weather-icon>
+  </div>
+  <div class="temp" *ngIf="weather.temp">
+    <p>Temperatura</p>
+    <p class="big">{{ weather.temp }}°</p>
+  </div>
+  <div class="low-temp" *ngIf="weather.minMaxTemp">
+    <span>Mínima</span>
+    {{ weather.minMaxTemp.min }}°
+  </div>
+  <div class="high-temp" *ngIf="weather.minMaxTemp">
+    <span>Máxima</span>
+    {{ weather.minMaxTemp.max }}°
+  </div>
+  <div class="description">
+    <h2>{{ weather.name }}</h2>
+    <!-- <p>{{ weather.description }}</p> -->
+    <p *ngIf="weather.description === 'moderate rain'"> Lluvia moderada</p>
+    <p *ngIf="weather.description === 'light rain'"> Lluvia ligera</p>
+  </div>
+</div>
